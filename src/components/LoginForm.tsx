@@ -16,12 +16,13 @@ export default function LoginForm() {
     e.preventDefault();
     setIsLoading(true);
     const res = await api.post("/auth/login", { email, password });
-    setIsLoading(false);
+    
     login(res.data.token, res.data.user);
+    setIsLoading(false);
     navigate("/admin/dashboard");
   }
     return (
-        <div className="w-full flex items-center justify-center p-8 bg-white">
+        <div className="w-full bg-white">
            
         <div className="w-full max-w-md space-y-8">
           {/* Logo/Brand */}

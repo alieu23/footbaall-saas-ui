@@ -23,8 +23,7 @@ const mockUser = {
   email: "john@example.com"
 };
 
-export default function Sidebar() {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+export default function Sidebar({ isCollapsed, setIsCollapsed }: { isCollapsed: boolean; setIsCollapsed: (v: boolean) => void }) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const user = mockUser;
 
@@ -39,6 +38,7 @@ export default function Sidebar() {
   const clubAdminLinks = [
     { to: "/", label: "Dashboard", icon: <LayoutDashboard className="w-5 h-5" /> },
     { to: "/players", label: "Players", icon: <UserCircle className="w-5 h-5" /> },
+        { to: "/admin/clubs", label: "Clubs", icon: <Building2 className="w-5 h-5" /> },
     { to: "/contracts", label: "Contracts", icon: <FileText className="w-5 h-5" /> },
     { to: "/loans", label: "Loans", icon: <TrendingUp className="w-5 h-5" /> },
     { to: "/transfers", label: "Transfers", icon: <ArrowLeftRight className="w-5 h-5" /> },
@@ -72,8 +72,8 @@ export default function Sidebar() {
       {/* Sidebar */}
       <aside
         className={`
-          fixed lg:sticky top-0 left-0 h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white
-          flex flex-col shadow-2xl z-40 transition-all duration-300 ease-in-out
+          fixed  top-0 left-0 h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white
+           shadow-2xl z-20 transition-all duration-300 ease-in-out
           ${isCollapsed ? 'w-20' : 'w-72'}
           ${isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}

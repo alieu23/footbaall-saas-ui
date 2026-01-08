@@ -36,7 +36,7 @@ export default function Dashboard() {
 
   if (!data) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen w-full bg-gray-50 flex items-center justify-center p-6">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-600 font-medium">Loading dashboard...</p>
@@ -46,7 +46,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen justify-center justify-items-center bg-gray-50">
+    <div className=" min-h-screen w-full flex-1  bg-gray-50 flex flex-col items-start justify-start p-6">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-5 w-full">
         <div className="w-full px-0 py-4">
@@ -101,16 +101,16 @@ export default function Dashboard() {
               <h2 className="text-2xl font-bold mb-2">Welcome back, Admin!</h2>
               <p className="text-blue-100">Here's what's happening with your platform today.</p>
             </div>
-            <div className="hidden md:flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+          {/*   <div className="hidden md:flex items-center space-x-2 bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
               <Calendar className="w-5 h-5" />
               <span className="font-medium">Last 7 days</span>
               <ChevronDown className="w-4 h-4" />
-            </div>
+            </div> */}
           </div>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <StatCard
             label="Total Clubs"
             value={data.stats.totalClubs}
@@ -132,13 +132,13 @@ export default function Dashboard() {
             icon={<Trophy className="w-6 h-6" />}
             color="purple"
           />
-          <StatCard
+       {/*    <StatCard
             label="Active Transfers"
             value={156}
             change={15.3}
             icon={<Activity className="w-6 h-6" />}
             color="orange"
-          />
+          /> */}
         </div>
 
         {/* Activity Grid */}
